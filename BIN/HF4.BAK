@@ -1,0 +1,156 @@
+/* Barcza Bal zs
+   DJVMN2
+
+   H zifeladat: Sz mol¢g‚p
+   2005.05.25	*/
+
+
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+#define PROMPT ':'
+
+
+main()
+
+{
+int i,j,ch;
+int mozogv=0,mozogf=0;
+char op;
+int m[5][5],g=0,lepes=0;
+randomize();
+window(1,1,80,50);
+textbackground(BLACK);
+textcolor(1);
+clrscr();
+	window(1,25,80,50);
+	textbackground(RED);
+	clrscr();
+
+	window(1,1,80,1);
+	textbackground(2);
+	clrscr();
+
+	window(6,2,26,22);
+	textbackground(3);
+	clrscr();
+
+	 for(j=0;j<5;j++)
+	  {
+	    for(i=0;i<5;i++)
+		       {
+			window(7+(i*4),3+(j*4),9+(i*4),5+(j*4));
+			textbackground(2);
+			clrscr();
+			gotoxy(2,2);
+			if ((i!=4) || (j!=4))
+			{g++; m[i][j]=g;}
+			else m[i][j]=0;
+			cprintf("%d",m[i][j]);
+		       }
+	  }
+	 window(54,2,74,22);
+	 textbackground(3);
+	 clrscr();
+	 g=0;
+	 for(j=0;j<5;j++)
+	  {
+	    for(i=0;i<5;i++)
+		       {
+			window(55+(i*4),3+(j*4),57+(i*4),5+(j*4));
+			textbackground(2);
+			clrscr();
+			gotoxy(2,2);
+			if ((i!=4) || (j!=4))
+			{g++; m[i][j]=g;}
+			else m[i][j]=0;
+			cprintf("%d",m[i][j]);
+		       }
+	  }
+			window(71,19,73,21);
+			textbackground(RED);
+			clrscr();
+
+
+
+
+
+/*  for(i=0;i<5;i++)
+      {	for(j=0;j<5;j++)
+	   {	g++;
+		matrix[i][j]=g;
+	   }
+      }
+  for(i=0;i<5;i++)
+      {	for(j=0;j<5;j++)
+	   {	cprintf("%4d",matrix[i][j]);
+		cprintf("\n\r");
+	   }
+      }    */
+
+
+
+/*  i=4;j=4;
+  do
+  {
+  window(30,1,50,20);
+	textbackground(3);
+	clrscr();
+	cprintf("\n\r");
+	cprintf("BARCZA BAL ZS\n\r");
+	cprintf("DJVMN2\n\r");
+	cprintf("\n\r");
+	cprintf("M[%d][%d]:=%d\n\r",i,j,m[i][j]);
+	cprintf("\n\r");
+	cprintf("L‚pesek sz ma:%d",lepes);
+	cprintf("\n\r");
+	cprintf("\n\r");
+	cprintf("Fel : W\n\r");
+	cprintf("LE  : S\n\r");
+	cprintf("BAL : A\n\r");
+	cprintf("JOBB: D\n\r");
+	cprintf("\n\r");
+	cprintf("Kil‚pes : V\n\r");
+  op=getch();
+	window(71-abs((4*mozogv)),19-abs((4*mozogf)),73-abs((4*mozogv)),21-abs((4*mozogf)));
+	textbackground(2);
+	clrscr();
+	gotoxy(2,2);
+	cprintf("%d",m[i][j]);
+  switch (op)
+  {
+	case 'a':
+		if (71+(4*mozogv) > 55)
+		{mozogv--; m[i][j]=m[i][j-1]; m[i][j-1]=0;j--;};
+		break;
+	case 'd':
+		if (73+(4*mozogv) < 73)
+		{mozogv++; m[i][j]=m[i][j+1]; m[i][j+1]=0;j++;};
+		break;
+	case 'w':
+		if (19+(4*mozogf) > 3)
+		{mozogf--; m[i][j]=m[i-1][j]; m[i-1][j]=0;i--;}
+		break;
+	case 's':
+		if (21+(4*mozogf) < 21)
+		{mozogf++; m[i][j]=m[i+1][j]; m[i+1][j]=0;i++;}
+		break;
+	default :
+		goto kilep;
+
+  }
+	window(71+(4*mozogv),19+(4*mozogf),73+(4*mozogv),21+(4*mozogf));
+	textbackground(RED);
+	clrscr();
+	gotoxy(2,2);
+	cprintf("%d",m[i][j]);
+  lepes++;
+  }
+  while (1);
+  kilep:    */
+getch();
+textattr((BLACK<<4)+LIGHTGRAY);
+}

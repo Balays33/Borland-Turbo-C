@@ -1,0 +1,70 @@
+
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+#define PROMPT ':'
+
+
+main()
+
+{
+int i,j,szam=1,ch;
+int mozogv=0,mozogf=0;
+char op;
+int m[5][5],g=0;
+window(1,1,80,50);
+textbackground(BLACK);
+textcolor(RED);
+clrscr();
+for(i=0;i<5;i++)
+      {	for(j=0;j<5;j++)
+	   {
+	    if ((i!=4) || (j!=4))
+	    {g++; m[i][j]=g;}
+	    else m[i][j]=0;
+	   }
+      }
+  for(i=0;i<5;i++)
+      {	for(j=0;j<5;j++)
+		cprintf("%4d",m[i][j]);
+		cprintf("\n\r");
+
+      }
+  i=4;j=4;
+  do
+  {
+  op=getch();
+   switch (op)
+  {
+	case 'a':
+
+		{mozogv--; m[i][j]=m[i][j-1]; m[i][j-1]=0;j--;}
+		break;
+	case 'd':
+
+		{mozogv++; m[i][j]=m[i][j+1]; m[i][j+1]=0;j++;}
+		break;
+	case 'w':
+
+		{mozogf--; m[i][j]=m[i-1][j]; m[i-1][j]=0;i--;}
+		break;
+	case 's':
+
+		{mozogf++; m[i][j]=m[i+1][j]; m[i+1][j]=0;i++;}
+		break;
+	default :
+	      goto b;
+  }
+  }while (1);
+b:  cprintf("\n\r");
+  for(i=0;i<5;i++)
+      {	for(j=0;j<5;j++)
+		cprintf("%4d",m[i][j]);
+		cprintf("\n\r");
+
+      }
+  getch();
+}
